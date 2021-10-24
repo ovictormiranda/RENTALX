@@ -20,4 +20,4 @@ Utilizando também o Padrão de arquitetura limpa SOLID.
 [x] Criar Categoria 
 [x] Listar Categoria
 [x] Validando cadastro de Categoria (Só pode cadastrar categorias que ainda não existam)
-[]
+[] Multer para upload de arquivos
