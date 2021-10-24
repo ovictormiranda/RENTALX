@@ -6,6 +6,7 @@ Utilizando algums principios de código limpo como:
 Nomes declarativos para constantes, funções, e mensagens (principalmente de erros) descrevendo de fato o que está acontencendo.
 Utilizando também o Padrão de arquitetura limpa SOLID.
 
+//SINGLETON como instancia global
 
 **Utilizando SOLID**
 **S** -> SRP - Single Responsability Principle  
