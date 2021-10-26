@@ -7,7 +7,6 @@ interface IImportCategory {
   description: string;
 }
 
-
 class ImportCategoryUseCase {
   constructor(private categoriesRepository: ICategoriesRepository) {}
 
@@ -29,6 +28,7 @@ class ImportCategoryUseCase {
         });
       })
       .on("end", () => {
+        fs.promises.unlink(file.path);
         resolve(categories);
       })
       .on("error", (err) => {
