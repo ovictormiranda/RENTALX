@@ -2,14 +2,14 @@
 ###API de aluguel de Carros
 
 **Código Limpo**
-Utilizando algums principios de código limpo como: 
+Utilizando algums principios de código limpo como:
 Nomes declarativos para constantes, funções, e mensagens (principalmente de erros) descrevendo de fato o que está acontencendo.
 Utilizando também o Padrão de arquitetura limpa SOLID.
 
 //SINGLETON como instancia global
 
 **Utilizando SOLID**
-**S** -> SRP - Single Responsability Principle  
+**S** -> SRP - Single Responsability Principle
 **O** -> OCP - Open Closed Principle
 **L** -> LSP - Liskov Substitution Principle
 **I** -> ISP - Interface Segregation Principle
@@ -17,7 +17,20 @@ Utilizando também o Padrão de arquitetura limpa SOLID.
 
 
 **Categoria dos Carros**
-[x] Criar Categoria 
+[x] Criar Categoria
 [x] Listar Categoria
 [x] Validando cadastro de Categoria (Só pode cadastrar categorias que ainda não existam)
-[] Multer para upload de arquivos
+[x] Multer para upload de arquivos
+
+
+
+Iniciar aplicação:
+
+
+sudo docker ps
+
+sudo docker-compose down
+
+sudo docker-compose up -d --force-recreate
+
+yarn typeorm migration:run
