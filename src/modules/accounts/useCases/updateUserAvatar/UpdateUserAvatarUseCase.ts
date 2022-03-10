@@ -1,9 +1,10 @@
+import { inject, injectable } from "tsyringe";
 
-
+import { deleteFile } from "../../../../utils/file";
     //add avatar column on users table
     //yarn typeorm migration:create -n AlterUserAddAvatar
 
-import { inject, injectable } from "tsyringe";
+
 import { IUsersRepository } from "../../repositories/IUsersRepositorys";
 
     // Refactory user table with avatar column
@@ -26,6 +27,9 @@ class UpdateUserAvatarUseCase {
   async execute({ user_id, avatar_file}: IRequest): Promise<void> {
     const user = await this.usersRepository.findById(user_id);
 
+    if (user.avatar) {
+      await deleteFile(`./tmp/avatar/${user.avatar}`);
+    }
     user.avatar = avatar_file;
 
     await this.usersRepository.create(user);
