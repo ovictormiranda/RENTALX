@@ -34,3 +34,21 @@ sudo docker-compose down
 sudo docker-compose up -d --force-recreate
 
 yarn typeorm migration:run
+
+
+
+1 - Testes unitários
+Testar as regras de negócio(UseCases) da nossa aplicação.
+
+2 - Testes de integração
+-> routes -> controllers -> useCases -> respository
+<- repository <- useCases <- controllers <- routes
+
+Testar a aplicação inteira, desde o momento em que a rota é chamada, a chamada do controller até o retorno que ela terá.
+(conexão com o banco, criando um banco de teste. o teste de banco, não testa no banco real;
+Serviços externos, ex: envio de email;
+)
+
+TDD <>:<> Test Driven Development (é uma metodologia)
+Primeiro eu faço o teste, depois eu crio a aplicação.
+
