@@ -1,54 +1,64 @@
-###RENTALX - API
-###API de aluguel de Carros
+#Cadastro de Carro
 
-**Código Limpo**
-Utilizando algums principios de código limpo como:
-Nomes declarativos para constantes, funções, e mensagens (principalmente de erros) descrevendo de fato o que está acontencendo.
-Utilizando também o Padrão de arquitetura limpa SOLID.
+**RF** => Requisitos funcionais
+[] Deve ser possível cadastrar um novo carro.
+[] Deve ser possível listar todas as categorias.
 
-//SINGLETON como instancia global
-
-**Utilizando SOLID**
-**S** -> SRP - Single Responsability Principle
-**O** -> OCP - Open Closed Principle
-**L** -> LSP - Liskov Substitution Principle
-**I** -> ISP - Interface Segregation Principle
-**D** -> DIP - Dependency Inversion Principle (O código que implementa um politica de alto nível, não deve depender do código que implementa detalhes de baixo nível.)
+**RN** => Regra de negócio
+[] Não deve ser possível cadastrar um carro com uma placa já existente.
+[] Não deve ser possível alterar a placa de carro já cadastrado.
+[] O carro deve ser cadastrado por padrão, como disponivel.
+[] O usuário responsável pelo cadastro deve ser um usuário administrador.
 
 
-**Categoria dos Carros**
-[x] Criar Categoria
-[x] Listar Categoria
-[x] Validando cadastro de Categoria (Só pode cadastrar categorias que ainda não existam)
-[x] Multer para upload de arquivos
+#Listagem de carros
+
+**RF** => Requisitos funcionais
+[] Deve ser possível listar todos os carros disponíveis.
+[] Deve ser possível listar todos os carros disponíveis pelo nome da categoria.
+[] Deve ser possível listar todos os carros disponíveis pelo nome da marca.
+[] Deve ser possível listar todos os carros disponíveis pelo nome do carro.
+
+**RN** => Regra de negócio
+[] O usuário não precisa estar logado no sistema.
 
 
+#Cadastro de Especificação no carro
 
-Iniciar aplicação:
+**RF** => Requisitos funcionais
+[] Deve ser possível cadastrar uma especificação para um carro.
+[] Deve ser possível listar todas as especificações.
+[] Deve ser possível listar todos os carros.
+
+**RNF** => Requisitos não funcionais
+-
+
+**RN** => Regra de negócio
+[] Não deve ser possível cadastrar uma especificação para um carro não cadastrado.
+[] Não deve ser possível cadastrar uma mesma especificação para o mesmo carro.
+[] O usuário responsável pelo cadastro deve ser um usuário administrador.
 
 
-sudo docker ps
+#Cadastro de imagem do carro
 
-sudo docker-compose down
+**RF** => Requisitos funcionais
+[] Deve ser possível cadastrar imagem para o carro.
+[] Deve ser possível listar todos os carros.
 
-sudo docker-compose up -d --force-recreate
+**RNF** => Requisitos não funcionais
+[] Utilizar o multer para o upload dos arquivos.
 
-yarn typeorm migration:run
+**RN** => Regra de negócio
+[] O Usuário deve poder cadastrar mais de uma imagem para o mesmo carro.
+[] O usuário responsável pelo cadastro de uma imagem deve ser o administrador.
 
 
+#Aluguel de Carro
 
-1 - Testes unitários
-Testar as regras de negócio(UseCases) da nossa aplicação.
+**RF** => Requisitos funcionais
+[] Deve ser possível cadastrar um aluguel.
 
-2 - Testes de integração
--> routes -> controllers -> useCases -> respository
-<- repository <- useCases <- controllers <- routes
-
-Testar a aplicação inteira, desde o momento em que a rota é chamada, a chamada do controller até o retorno que ela terá.
-(conexão com o banco, criando um banco de teste. o teste de banco, não testa no banco real;
-Serviços externos, ex: envio de email;
-)
-
-TDD <>:<> Test Driven Development (é uma metodologia)
-Primeiro eu faço o teste, depois eu crio a aplicação.
-
+**RN** => Regra de negócio
+[] O aluguel deve ter duração minima de 24h.
+[] Não deve ser possível cadastrar um novo aluguel caso já exista um aberto par ao mesmo usuário.
+[] Não deve ser possível cadastrar um novo aluguel caso já exista um aberto par ao mesmo carro.
