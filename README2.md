@@ -52,6 +52,25 @@ Serviços externos, ex: envio de email;
 TDD <>:<> Test Driven Development (é uma metodologia)
 Primeiro eu faço o teste, depois eu crio a aplicação.
 
+Obs:
+primeiro cria o banco (yarn typeorm migration:create nome_da_migration)
+depois de criado, devemos configura-la, editando o arquivo.
+
+depois cria a pasta useCase desejada e com 2 arquivos..
+pasta: desejoUseCase
+arquivos: DesejoUseCase.ts  //  DesejoUseCase.spec.ts
+
+no primeiro arquivo, crie uma base, só pra existir a referencia dele, ex:
+
+class CreateCarSpecificationUseCase {
+  async execute(): Promise<void> {
+
+  }
+}
+
+export { CreateCarSpecificationUseCase }
+
+a partir dai, vá para o arquivo .spec.ts para criar os testes unitarios.
 
 
 
