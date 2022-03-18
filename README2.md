@@ -72,5 +72,5 @@ export { CreateCarSpecificationUseCase }
 
 a partir dai, vá para o arquivo .spec.ts para criar os testes unitarios.
 
-
+Crie a Entidade, e depois o repositório.
 
