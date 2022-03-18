@@ -1,3 +1,5 @@
+import { AppError } from "../../../../shared/errors/AppError";
+import { IRentalsRepository } from "../../repositories/IRentalsRepository";
 
 interface IRequest {
   user_id: string;
@@ -6,17 +8,27 @@ interface IRequest {
 }
 
 class CreateRentalUseCase {
+  constructor(private rentalsRepository: IRentalsRepository) {
 
-  constructor(
-    private rentalsRepository: IRentalsRepository
-  )
+  }
 
   async execute({
     user_id,
     car_id,
     expected_return_date,
-  }: IRequest): Promise<void>; {
-    const carAvailable = await this.rentalsRepository.findByCar(car_id);
+  }: IRequest): Promise<void> {
+    const carUnavailable = await this.rentalsRepository.findOpenRentalByCar(car_id);
+
+    if(carUnavailable) {
+      throw new AppError("Car is unavailable");
+    }
+
+    const rentalOpenToUser = await this.rentalsRepository.findOpenRentalByUser(user_id);
+
+    if(rentalOpenToUser) {
+      throw new AppError("There's a rental in progress for this user!");
+    }
+
   }
 }
 
