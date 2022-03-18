@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, Table, TableForeignKey} from "typeorm";
 
-export class CreateSpecificationsCars1647507869418 implements MigrationInterface {
+export class CreateSpecificationsCars1647640852154 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
       await queryRunner.createTable(
@@ -70,3 +70,4 @@ export class CreateSpecificationsCars1647507869418 implements MigrationInterface
       await queryRunner.dropTable("specifications_cars");
     }
 }
+
