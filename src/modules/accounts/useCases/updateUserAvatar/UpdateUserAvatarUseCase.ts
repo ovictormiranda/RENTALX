@@ -5,9 +5,9 @@ import { deleteFile } from "../../../../utils/file";
     //yarn typeorm migration:create -n AlterUserAddAvatar
 
 
-import { IUsersRepository } from "../../repositories/IUsersRepositorys";
+import { IUsersRepository } from "../../repositories/IUsersRepository";
 
-    // Refactory user table with avatar column
+    // Refactor user table with avatar column
     //set up multer upload
     // create a business rule to upload
     // create controller
